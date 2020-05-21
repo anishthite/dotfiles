@@ -102,4 +102,4 @@ symbol = " "
 symbol = " "
 
 [line_break]
-disabled = true
+disabled = false
