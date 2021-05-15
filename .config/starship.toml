@@ -1,40 +1,12 @@
-prompt_order = [
+format = [
     "username",
     "hostname",
-    "kubernetes",
-    "hg_branch",
-    "docker_context",
-    "package",
-    "dotnet",
-    "elixir",
-    "elm",
-    "golang",
-    "haskell",
-    "java",
-    "julia",
-    "nodejs",
-    "php",
-    "python",
-    "ruby",
-    "rust",
-    "terraform",
-    "nix_shell",
+	"nodejs",
     "conda",
-    "memory_usage",
-    "aws",
-	"directory",
-    "git_branch",
-    "git_commit",
-    "git_state",
-    "git_status",
     "env_var",
     "crystal",
-    "cmd_duration",
-    "custom",
-    "line_break",
+	"directory",
     "jobs",
-    "battery",
-    "time",
     "character"
 ]
 [username]
@@ -102,4 +74,4 @@ symbol = " "
 symbol = " "
 
 [line_break]
-disabled = false
+disabled = false 

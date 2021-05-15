@@ -1,12 +1,12 @@
-set nocompatible
+"use system colorsset nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " We could also add repositories with a ".git" extension
 Plugin 'scrooloose/nerdtree.git'
@@ -18,13 +18,15 @@ Plugin 'Buffergator'
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 "Plugin 'sonph/onehalf', {'rtp': 'vim/'}
-Plugin 'morhetz/gruvbox'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'latexmk'
 Plugin 'lervag/vimtex'
 Plugin 'xuhdev/vim-latex-live-preview'
-Plugin 'joshdick/onedark.vim'
-Plugin 'ycm-core/YouCompleteMe'
+Plugin 'chriskempson/base16-vim'
+Plugin 'chrisbra/colorizer'
+Plugin 'dylanaraps/wal'
+Plugin 'neoclide/coc.nvim'
+call vundle#end()
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -45,11 +47,17 @@ endif
 
 set background=dark 
 syntax on
-colorscheme onedark
 set tabstop=4
-let g:onedark_termcolors=256
+set expandtab
+let g:onedark_termcolors=16
+
+colorscheme wal
+
+colorscheme base16-seti
+
 ab pdfpreview LLPStratPreview
 let g:polyglot_disabled = ['latex']
 let g:onedark_bg = 'darkest'
 let mapleader = ","
 nmap <leader>nt :NERDTree<cr>
+

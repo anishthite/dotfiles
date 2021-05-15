@@ -1,5 +1,5 @@
 [Configuration]
-FontName=Hack Nerd Font 17
+FontName=Droid Sans Mono Bold 16
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -25,17 +25,11 @@ MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
-ColorForeground=#D8DEE9
-ColorBackground=#222222222222
-BackgroundImageFile=/home/anishthite/Pictures/twinrocketlandingsq.jpg
-BackgroundImageStyle=TERMINAL_BACKGROUND_STYLE_STRETCHED
-ColorCursor=#D8DEE9
-ColorPalette=#3B4252;#BF616A;#A3BE8C;#EBCB8B;#81A1C1;#B48EAD;#88C0D0;#E5E9F0;#4C566A;#BF616A;#A3BE8C;#EBCB8B;#81A1C1;#B48EAD;#8FBCBB;#ECEFF4
-ColorBold=#D8DEE9
-ColorBoldUseDefault=FALSE
-TabActivityColor=#88C0D0
-ScrollingUnlimited=TRUE
-TitleMode=TERMINAL_TITLE_REPLACE
-ScrollingBar=TERMINAL_SCROLLBAR_NONE
+MiscSearchDialogOpacity=100
+MiscShowUnsafePasteDialog=FALSE
+ColorForeground=#c5c8c6
+ColorBackground=#1d1f21
+ColorCursor=x
+ColorPalette=#1d1f21;#cc6666;#b5bd68;#f0c674;#81a2be;#b294bb;#8abeb7;#c5c8c6;#969896;#cc6666;#b5bd68;#f0c674;#81a2be;#b294bb;#8abeb7;#ffffff
 ColorBoldIsBright=FALSE
 

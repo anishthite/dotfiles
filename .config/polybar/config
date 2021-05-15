@@ -1,0 +1,247 @@
+;-------------------------------------------------
+;                                                ;
+;           Polybar config for my themes         ;
+; 				                 ;
+;                                                ;
+;-------------------------------------------------
+
+
+[colors]
+;My colors are set from .Xresources to match everything else
+my_background 	= ${xrdb:background}
+my_foreground 	= ${xrdb:foreground}
+my_color0	= ${xrdb:color0}
+my_color1	= ${xrdb:color1}
+my_color2	= ${xrdb:color2}
+my_color3	= ${xrdb:color3}
+my_color4	= ${xrdb:color4}
+my_color5	= ${xrdb:color5}
+my_color6	= ${xrdb:color6}
+my_color7	= ${xrdb:color7}
+my_color8	= ${xrdb:color8}
+my_color9	= ${xrdb:color9}
+my_color10	= ${xrdb:color10}
+my_color11	= ${xrdb:color11}
+my_color12	= ${xrdb:color12}
+my_color13	= ${xrdb:color13}
+my_color14	= ${xrdb:color14}
+my_color15	= ${xrdb:color15}
+
+[bar/main_bar]
+;monitor = ${env:MONITOR:HDMI-1}
+;monitor = ${env:MONITOR:eDP1}
+bottom = false
+width = 100%
+height = 50 
+offset-x = 0
+offset-y = 0
+radius = 0.0
+fixed-center = true
+
+
+background = ${colors.my_background}
+foreground =  ${colors.my_foreground}
+
+line-size = 2.5
+line-color = ${colors.my_color4}
+
+border-size = 0
+border-color = ${colors.my_color2}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 2
+
+font-2 = Hack\ Nerd\ Font\ Mono:fontformat=truetype:size=22;1
+font-0 = Hack\ Nerd\ Font\ Mono:fontformat=truetype:size=22;1
+font-1 = Hack\ Nerd\ Font\ Mono:fontformat=truetype:size=22;1
+
+
+modules-left = i3 xwindow 
+modules-center = date 
+modules-right = cava musicinfo cpu battery 
+
+tray-position = right
+tray-padding = 9
+tray-transparent = false
+tray-offset-y = 0%
+tray-offset-x = 0%
+tray-maxsize = 18
+tray-detached = false
+tray-background = ${colors.my_background}
+
+wm-restack = i3
+
+;override-redirect = true
+
+
+[module/cpu]
+type = internal/cpu
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+format-foreground = ${colors.my_color15}
+
+[module/temperature]
+type = internal/temperature
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Thermal zone to use
+; To list all the zone types, run 
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+
+; Base temperature for where to start the ramp (in degrees celsius)
+; Default: 0
+base-temperature = 20
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 60
+
+
+[module/filesystem]
+type = internal/fs
+
+; Mountpoints to display
+mount-0 = /
+mount-1 = /home
+mount-2 = /var
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 10
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+
+; Spacing between entries
+; Default: 2
+spacing = 4
+
+
+
+[module/i3]
+type = internal/i3
+
+label-unfocused-background = ${colors.my_background}
+label-unfocused-foreground = ${colors.my_color14}
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${colors.my_color4}
+
+label-focused = %index%
+label-focused-foreground = ${colors.my_foreground}
+label-focused-background = ${colors.my_background}
+label-focused-underline = ${colors.my_color4}
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-underline = ${colors.my_foreground}
+label-visible-padding = 4
+
+label-urgent = %index%
+label-urgent-foreground = ${colors.my_foreground}
+label-urgent-background = ${colors.my_background}
+label-urgent-underline = ${colors.my_color8}
+label-urgent-padding = 2
+
+[module/musicinfo]
+type = custom/script
+
+exec = ~/.config/polybar/music.sh
+interval = 5
+format = <label>
+label = %output:0:30:...%
+format-padding = 10
+format-foreground = ${colors.my_color15}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date-alt = "%d/%m/%Y"
+
+time = "%a %b %d, %H:%M:%S "
+
+time-alt = %H:%M
+
+format-prefix-foreground = ${colors.my_foreground}
+;format-underline = ${colors.my_color5}
+format-underline =
+
+
+label = %date% %time%
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 99
+
+label-padding = 11
+format-charging-foreground = ${colors.my_color15}
+format-full-background = ${colors.my_background}
+format-charging-background = ${colors.my_background}
+format-charging = "<label-charging> "
+
+format-discharging-foreground = ${colors.my_color15}
+format-discharging-background = ${colors.my_background}
+format-discharging = "<label-discharging> "
+
+format-full-prefix-foreground = ${colors.my_background}
+
+format-charing-background = ${colors.my_background}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+label-padding = 10
+label-foreground = ${colors.my_color3}
+
+
+[module/popup-calendar]
+type = custom/script
+exec = ~/polybar-scripts/popup-calendar.sh
+interval = 5
+click-left = ~/polybar-scripts/popup-calendar.sh --popup &
+
+
+[module/cava]
+type = custom/script
+tail = true
+exec = $HOME/.config/polybar/cava.sh
+format = <label>
+format-font = 5
+label = %output%
+label-foreground = ${colors.my_color15}
