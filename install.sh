@@ -23,6 +23,13 @@ done
 
 log() { printf '\033[1;34m[dotfiles]\033[0m %s\n' "$*"; }
 
+# Ensure submodules are initialized — Vundle and alacritty themes live there.
+if [ -f "$DOTFILES_DIR/.gitmodules" ] && [ "$DRY_RUN" -eq 0 ]; then
+  if command -v git >/dev/null 2>&1; then
+    (cd "$DOTFILES_DIR" && git submodule update --init --recursive --quiet) && log "submodules ready"
+  fi
+fi
+
 link_one() {
   local src="$1" rel="$2"
   local dst="$DEST/$rel"

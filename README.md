@@ -29,7 +29,7 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # 2. Clone
-git clone https://github.com/anishthite/dotfiles.git ~/workspace/dotfiles
+git clone --recurse-submodules https://github.com/anishthite/dotfiles.git ~/workspace/dotfiles
 cd ~/workspace/dotfiles
 
 # 3. Symlink dotfiles + install Brewfile
@@ -44,6 +44,9 @@ That's it. Open a new shell.
 ./install.sh --dry-run    # preview what would link
 ./install.sh              # symlink only, skip brew
 brew bundle dump --force  # regenerate Brewfile from what's currently installed
+
+# If you forgot --recurse-submodules at clone time:
+git submodule update --init --recursive
 ```
 
 Existing files in `$HOME` are moved to `~/.dotfiles-backup-<timestamp>/` before symlinking — nothing is overwritten silently.

@@ -1,0 +1,6 @@
+[submodule "home/.config/alacritty/themes"]
+	path = home/.config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
+[submodule "home/.config/nvim/bundle/Vundle.vim"]
+	path = home/.config/nvim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
