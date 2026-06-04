@@ -1,0 +1,7 @@
+coffee_count=0
+interactions=124
+coffee_day=2026-06-02
+born=1776591774
+last_played=1776591774
+last_petted=1780441054
+last_fed=1780441443

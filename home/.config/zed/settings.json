@@ -1,0 +1,27 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "theme": "Atelier Seaside Dark",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": true,
+  "soft_wrap": "editor_width",
+  "git": {
+    "git_gutter": "tracked_files"
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  }
+}

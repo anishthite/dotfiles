@@ -1,0 +1,23 @@
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\x1b\r"
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "Monaspace Argon"
+style = "Regular"
+
+[font.bold]
+family = "Monaspace Argon"
+style = "Bold"
+
+[font.italic]
+family = "Monaspace Radon"
+style = "Italic"
+
+[font.bold_italic]
+family = "Monaspace Radon"
+style = "Bold Italic"

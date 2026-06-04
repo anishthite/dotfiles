@@ -1,0 +1,15 @@
+.DS_Store
+*.swp
+*.bak
+
+# Belt-and-suspenders: never commit these even if accidentally copied in
+home/.config/gh/hosts.yml
+home/.npmrc
+home/.ssh/
+home/.aws/
+home/.env
+home/.gnupg/
+home/.claude.json
+home/.config/**/auth*
+home/**/*token*
+home/**/*secret*

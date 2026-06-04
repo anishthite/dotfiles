@@ -1,0 +1,9 @@
+{
+  "game_state": "idle",
+  "player_hand": [],
+  "dealer_hand": [],
+  "player_score": 0,
+  "dealer_score": 0,
+  "current_bet": 0,
+  "message": "Ready to play"
+}
