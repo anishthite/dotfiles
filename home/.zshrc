@@ -69,23 +69,30 @@ alias cum="git push "
 PS1='%n@%m %F{blue}% %~ %(?.%F{green}.%F{red})>>%f '
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+nvm() {
+  unfunction nvm
+  source /opt/homebrew/opt/nvm/nvm.sh
+  nvm "$@"
+}
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/anishthite/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/anishthite/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/anishthite/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/anishthite/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+conda() {
+  unfunction conda
+  source /Users/anishthite/miniconda3/etc/profile.d/conda.sh
+  conda "$@"
+}
+
+_load_emsdk() {
+  unfunction _load_emsdk emcc em++ emar emranlib emmake emconfigure emcmake emsdk
+  source /Users/anishthite/Documents/playscape/emsdk/emsdk_env.sh
+}
+emcc() { _load_emsdk; emcc "$@"; }
+em++() { _load_emsdk; em++ "$@"; }
+emar() { _load_emsdk; emar "$@"; }
+emranlib() { _load_emsdk; emranlib "$@"; }
+emmake() { _load_emsdk; emmake "$@"; }
+emconfigure() { _load_emsdk; emconfigure "$@"; }
+emcmake() { _load_emsdk; emcmake "$@"; }
+emsdk() { _load_emsdk; emsdk "$@"; }
 
 source $HOME/.cargo/env 
 # Removed: node@18 was overriding nvm. Use `nvm use <version>` instead.
@@ -272,6 +279,8 @@ _w_worktree_branches() {
   brs=("${(@f)$(git worktree list --porcelain 2>/dev/null | /opt/homebrew/bin/awk '/^branch /{sub("^refs/heads/","",$2); print $2}')}") 
   _describe -t branches 'worktree branches' brs
 }
+autoload -Uz compinit
+compinit -C
 compdef _w_worktree_branches wcd wrm wcode
 
 
@@ -390,3 +399,18 @@ eval "$(direnv hook zsh)"   # or bash
 
 # bun completions
 [ -s "/Users/anishthite/.bun/_bun" ] && source "/Users/anishthite/.bun/_bun"
+
+source /Users/anishthite/.daytona.completion_script.zsh
+
+# Added by jcode installer
+export PATH="/Users/anishthite/.local/bin:$PATH"
+
+# bun
+export PATH="/Users/anishthite/.bun/bin:$PATH"
+
+# Go binaries (go install / task install)
+export PATH="$HOME/go/bin:$PATH"
+
+# Whip shortcut
+alias wh="whip"
+alias whc="whipcode -yolo"
