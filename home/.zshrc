@@ -69,11 +69,7 @@ alias cum="git push "
 PS1='%n@%m %F{blue}% %~ %(?.%F{green}.%F{red})>>%f '
 
 export NVM_DIR="$HOME/.nvm"
-nvm() {
-  unfunction nvm
-  source /opt/homebrew/opt/nvm/nvm.sh
-  nvm "$@"
-}
+source /opt/homebrew/opt/nvm/nvm.sh
 
 conda() {
   unfunction conda
