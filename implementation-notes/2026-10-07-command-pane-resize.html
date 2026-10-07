@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Map Command arrows to tmux pane resize</title>
+<meta name="task" content="Resize tmux panes with Command plus an arrow key">
+<meta name="date-started" content="2026-10-07">
+<meta name="date-updated" content="2026-10-07">
+<meta name="status" content="shipped">
+<meta name="blast-radius" content="low">
+<meta name="tags" content="alacritty,tmux,keybindings">
+<meta name="related" content="">
+</head>
+<body>
+<h1>Map Command arrows to tmux pane resize</h1>
+<p class="meta"><code>main</code> · worktree <code>~/workspace/dotfiles</code> · 2026-10-07 · status <b>shipped</b> · blast <span class="blast-low">low</span></p>
+<h2>Summary</h2>
+<div class="kv">
+  <b>Goal</b><div>Resize the active tmux pane with <code>Command+Arrow</code>.</div>
+  <b>Source</b><div><code>Alacritty</code> keyboard bindings emit terminal bytes to <code>tmux</code>.</div>
+  <b>Surface</b><div><code>Command+Up|Down|Left|Right</code>.</div>
+  <b>Schema</b><div>None.</div>
+  <b>Mobile</b><div>Untouched.</div>
+  <b>Open Qs</b><div>0.</div>
+</div>
+<h2>Files</h2>
+<table><tr><th>Path</th><th>Kind</th><th>Delta</th></tr><tr><td><code>home/.config/alacritty/alacritty.yml</code></td><td>touch</td><td>Emit the existing tmux prefix and control-arrow resize sequence.</td></tr><tr><td><code>implementation-notes/2026-10-07-command-pane-resize.html</code></td><td>new</td><td>Record the binding decision.</td></tr><tr><td><code>implementation-notes/INDEX.html</code></td><td>new</td><td>Index this task.</td></tr></table>
+<h2>Decisions</h2>
+<table><tr><th>ID</th><th>Choice · Rationale</th></tr><tr><td>D-001</td><td>Emit <code>Ctrl-a</code> then <code>Ctrl+Arrow</code>. Reuse the existing tmux resize bindings.</td></tr></table>
+<h2>Reversibility</h2>
+<p>R-001 · <span class="blast-low">low</span>. Remove the four <code>key_bindings</code> entries and reload Alacritty.</p>
+<h2>Definition of done</h2>
+<ul><li>✓ Validate the Alacritty YAML configuration.</li><li>✓ Verify the emitted sequences map to the existing tmux resize bindings.</li><li>Commit and push the dotfiles change.</li></ul>
+</body>
+</html>
