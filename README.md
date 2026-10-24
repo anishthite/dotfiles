@@ -12,11 +12,20 @@ home/                       # everything here gets symlinked into $HOME
   .yabairc .skhdrc          # window manager + hotkeys
   .bash_profile .profile
   .config/
-    nvim/ alacritty/ ghostty/
+    nvim/ alacritty/ ghostty/ kitty/
     sketchybar/ skhd/ htop/
     gh/ zed/
+launchagents/               # copied into ~/Library/LaunchAgents by hand (not linked)
 Brewfile                    # `brew bundle` to reinstall apps + CLIs
 install.sh                  # symlink installer
+```
+
+kitty's dark theme is the palette lifted from Tern; `switch-theme.sh` rewrites `theme.conf` to
+the dark or light theme when macOS changes appearance. To keep that working, install the agent:
+
+```bash
+cp launchagents/com.kitty.theme.switch.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.kitty.theme.switch.plist
 ```
 
 Secrets are deliberately excluded: no `.ssh`, `.aws`, `.env`, `.npmrc`, `.gemini`, `.copilot`, `.claude.json`, `gh/hosts.yml`, etc.
