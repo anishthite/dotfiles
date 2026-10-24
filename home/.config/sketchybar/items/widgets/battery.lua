@@ -1,6 +1,10 @@
-local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
+local dither_gauge = require("helpers.dither_gauge")
+
+-- Dithered battery gauge (20x11 body + 2-cell nub) instead of a battery glyph.
+local gauge = dither_gauge({ name = "widgets.battery", w = 20, h = 11, nub = 2, canvas = { height = 26, pad_left = 6, nudge = 1 } })
+local first_image, gauge_width = gauge(0, false, false)
 
 local battery_percent = sbar.add("item", "widgets.battery.percent", {
   position = "right",
@@ -17,15 +21,14 @@ local battery_percent = sbar.add("item", "widgets.battery.percent", {
 local battery_icon = sbar.add("item", "widgets.battery.icon", {
   position = "right",
   padding_left = 0,
-  icon = {
-    font = {
-      style = settings.font.style_map["Regular"],
-      size = 13.0,
-    },
-    padding_left = 0,
-    padding_right = settings.group_paddings + settings.inner_padding,
-  },
+  width = gauge_width,
+  icon = { drawing = false },
   label = { drawing = false },
+  background = {
+    drawing = true,
+    color = colors.transparent,
+    image = { string = first_image, drawing = true, scale = 0.5, corner_radius = 0 },
+  },
   popup = { align = "center" }
 })
 
@@ -33,7 +36,7 @@ local remaining_time = sbar.add("item", {
   position = "popup." .. battery_icon.name,
   icon = {
     string = "Time remaining:",
-    width = 100,
+    width = 145,
     align = "left"
   },
   label = {
@@ -46,7 +49,6 @@ local remaining_time = sbar.add("item", {
 
 battery_percent:subscribe({"routine", "power_source_change", "system_woke"}, function()
   sbar.exec("pmset -g batt", function(batt_info)
-    local icon = "!"
     local label = "?"
 
     local found, _, charge = batt_info:find("(%d+)%%")
@@ -55,26 +57,10 @@ battery_percent:subscribe({"routine", "power_source_change", "system_woke"}, fun
       label = charge .. "%"
     end
 
-    local color = colors.green
-    local charging, _, _ = batt_info:find("AC Power")
-
-    if charging then
-      icon = icons.battery.charging
-    else
-      if found and charge > 80 then
-        icon = icons.battery._100
-      elseif found and charge > 60 then
-        icon = icons.battery._75
-      elseif found and charge > 40 then
-        icon = icons.battery._50
-      elseif found and charge > 20 then
-        icon = icons.battery._25
-        color = colors.orange
-      else
-        icon = icons.battery._0
-        color = colors.red
-      end
-    end
+    local charging = batt_info:find("AC Power") ~= nil
+    -- Warm at 40% and below on battery, where the old glyph turned orange.
+    local low = not charging and (not found or charge <= 40)
+    local color = low and colors.navy_rust.orange or colors.navy_rust.blue
 
     local lead = ""
     if found and charge < 10 then
@@ -84,9 +70,8 @@ battery_percent:subscribe({"routine", "power_source_change", "system_woke"}, fun
     battery_percent:set({
       label = { string = lead .. label, color = color },
     })
-    battery_icon:set({
-      icon = { string = icon, color = color }
-    })
+    local image = gauge((charge or 0) / 100, low, charging)
+    battery_icon:set({ background = { image = { string = image } } })
   end)
 end)
 

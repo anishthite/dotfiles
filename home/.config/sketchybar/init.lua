@@ -10,6 +10,11 @@ sbar.begin_config()
 require("bar")
 require("default")
 require("items")
+
+-- Apply consistent, readable sizes to every widget and popup.
+sbar.set("/.*/", { icon = { font = { size = 15.0 } }, label = { font = { size = 14.0 } } })
+-- The calendar draws its date as icon text: keep it at label size so date and time share a baseline.
+sbar.set("calendar", { icon = { font = { size = 14.0 } } })
 sbar.end_config()
 
 -- Run the event loop of the sketchybar module (without this there will be no

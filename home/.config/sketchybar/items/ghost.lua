@@ -1,4 +1,5 @@
 local colors = require("colors")
+local settings = require("settings")
 
 local HOME = os.getenv("HOME")
 local SPRITE_DIR = HOME .. "/.config/sketchybar/helpers/ghost"
@@ -123,7 +124,7 @@ local ghost_bubble = sbar.add("item", "ghost.bubble", {
   icon = { drawing = false },
   label = {
     string = "",
-    font = { family = "SF Pro", style = "Bold", size = 11.0 },
+    font = { family = settings.font.text, style = settings.font.style_map["Bold"], size = 11.0 },
     color = colors.amber or 0xfff9e2af,
     padding_left = 8,
     padding_right = 8,

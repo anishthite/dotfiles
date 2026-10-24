@@ -3,9 +3,9 @@ return {
   group_paddings = 5,
   inner_padding = 0,
 
-  icons = "sf-symbols", -- alternatively available: NerdFont
+  icons = "NerdFont", -- alternatively available: NerdFont
 
-  -- This is a font configuration for SF Pro and SF Mono (installed manually)
+  -- Berkeley Mono Nerd Font, shared by text, numbers, and icons
   font = require("helpers.default_font"),
 
   -- Alternatively, this is a font config for JetBrainsMono Nerd Font

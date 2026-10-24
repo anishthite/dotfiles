@@ -26,8 +26,8 @@ end
 local countdown = sbar.add("item", "countdown", {
   position = "right",
   icon = {
-    string = "􀉉",
-    font = { family = "SF Pro", style = "Bold", size = 13.0 },
+    string = "",
+    font = { family = settings.font.text, style = settings.font.style_map["Bold"], size = 13.0 },
     color = colors.magenta,
     padding_left = settings.group_paddings + settings.inner_padding,
     padding_right = settings.paddings + settings.inner_padding,

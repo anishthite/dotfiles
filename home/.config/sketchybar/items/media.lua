@@ -15,7 +15,7 @@ local media = sbar.add("item", "media", {
     color = colors.transparent,
   },
   icon = {
-    string = "􀑪",
+    string = "",
     color = colors.white,
     font = { size = 14 },
     padding_left = 4,
@@ -23,7 +23,7 @@ local media = sbar.add("item", "media", {
   },
   label = {
     string = "",
-    max_chars = 45,
+    max_chars = 38,  -- keeps long titles clear of music_art beside the notch
     color = colors.white,
     padding_left = 22,
   },
@@ -92,7 +92,7 @@ local function render(title, artist, playing, source, art_url)
 
   media:set({
     drawing = true,
-    icon = { string = playing and "􀊄" or "􀊆", color = icon_color },
+    icon = { string = playing and "" or "", color = icon_color },
     label = { string = label },
   })
 

@@ -12,6 +12,16 @@ return {
   amber   = 0xfff59b2d,  -- a400 warm amber
   transparent = 0x00000000,
 
+  -- navy-rust-v2 Dock icon palette (~/workspace/icon-override); also used by the dither charts.
+  navy_rust = {
+    ink    = 0xff141c2e,
+    paper  = 0xfff1e7d3,
+    navy   = 0xff2e4468,
+    blue   = 0xff7f9bbe,  -- normal state
+    rust   = 0xff8a3b1c,
+    orange = 0xffd98a5c,  -- warning / warm highlight
+  },
+
   bar = {
     bg     = 0xee05040a,  -- void w/ slight translucency
     border = 0x662f1f2f,

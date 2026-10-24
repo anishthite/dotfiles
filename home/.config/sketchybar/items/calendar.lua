@@ -4,7 +4,7 @@ local colors = require("colors")
 -- Padding item required because of bracket
 sbar.add("item", { position = "right", width = settings.group_paddings })
 
-local cal = sbar.add("item", {
+local cal = sbar.add("item", "calendar", {
   icon = {
     color = colors.white,
     padding_left = settings.group_paddings + settings.inner_padding,
@@ -16,7 +16,7 @@ local cal = sbar.add("item", {
   label = {
     color = colors.white,
     padding_right = settings.group_paddings + settings.inner_padding,
-    width = 64,
+    width = 76,
     align = "right",
     font = { family = settings.font.numbers, size = 11.0 },
   },
@@ -32,7 +32,7 @@ local cal = sbar.add("item", {
 })
 
 local minimal = false
-local hidden_patterns = { "/widgets%..*/", "countdown", "media", "ai_quip" }
+local hidden_patterns = { "/widgets%..*/", "countdown", "media" }
 
 cal:subscribe("mouse.clicked", function(env)
   if env.BUTTON == "right" then

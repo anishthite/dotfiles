@@ -14,11 +14,12 @@ end
 local sun = sbar.add("item", "widgets.weather.sun", {
   position = "right",
   icon = {
-    string = "􀆭",
+    string = "",
     font = { style = settings.font.style_map["Regular"], size = 13.0 },
     padding_left = settings.group_paddings,
     padding_right = settings.paddings,
-    color = colors.yellow,
+    color = colors.navy_rust.blue,
+    y_offset = 1,  -- Nerd Font glyphs sit 0.75pt below the text line at 15pt
   },
   label = {
     string = "--:--",
@@ -30,11 +31,12 @@ local sun = sbar.add("item", "widgets.weather.sun", {
 local weather = sbar.add("item", "widgets.weather", {
   position = "right",
   icon = {
-    string = "􀇕",
+    string = "",
     font = { style = settings.font.style_map["Regular"], size = 13.0 },
     padding_left = settings.group_paddings,
     padding_right = settings.paddings,
-    color = colors.yellow,
+    color = colors.navy_rust.blue,
+    y_offset = 1,  -- Nerd Font glyphs sit 0.75pt below the text line at 15pt
   },
   label = {
     string = "--°",
@@ -57,12 +59,12 @@ local function update_weather()
     sbar.exec("date +%H:%M", function(now_str)
       local now = to_min(now_str:gsub("%s+$", ""))
       local sr_m, ss_m = to_min(sr), to_min(ss)
-      local next_label, next_icon, next_color = hm(sr), "􀆭", colors.yellow
+      local next_label, next_icon, next_color = hm(sr), "", colors.navy_rust.blue
       if now and sr_m and ss_m then
         if now >= sr_m and now < ss_m then
-          next_label, next_icon, next_color = hm(ss), "􀆹", colors.orange
+          next_label, next_icon, next_color = hm(ss), "", colors.navy_rust.blue
         else
-          next_label, next_icon, next_color = hm(sr), "􀆭", colors.yellow
+          next_label, next_icon, next_color = hm(sr), "", colors.navy_rust.blue
         end
       end
       sun:set({

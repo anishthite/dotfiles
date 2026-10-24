@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Navy/rust SketchyBar widgets and tmux accents</title>
+<meta name="task" content="Theme SketchyBar widgets and tmux with the navy-rust-v2 icon palette; sync the live bar config">
+<meta name="date-started" content="2026-10-23">
+<meta name="date-updated" content="2026-10-23">
+<meta name="status" content="shipped">
+<meta name="blast-radius" content="low">
+<meta name="tags" content="sketchybar,tmux,theme,dither">
+<meta name="related" content="~/.config/sketchybar/.ai/docs/2026-10-23-dither-charts.html,~/workspace/icon-override/.ai/docs/2026-10-22-navy-rust-v2.html">
+</head>
+<body>
+<h1>Navy/rust SketchyBar widgets and tmux accents</h1>
+<p class="meta"><code>main</code> · worktree <code>~/workspace/dotfiles</code> · 2026-10-23 · status <b>shipped</b> · blast low</p>
+<h2>Summary</h2>
+<table>
+<tr><th>Goal</th><td>Match the bar and tmux to the navy-rust-v2 Dock icons; rust only for warnings.</td></tr>
+<tr><th>Detail</th><td>Widget design, thresholds and alignment measurements: <code>~/.config/sketchybar/.ai/docs/2026-10-23-dither-charts.html</code>.</td></tr>
+<tr><th>Terminal</th><td>kitty keeps the Tern-derived theme (<code>~/.config/kitty/themes/dark.conf</code>, not tracked here); tmux status sits on its background.</td></tr>
+</table>
+<h2>Files</h2>
+<table>
+<tr><td><code>home/.tmux.conf</code></td><td>touch</td><td>Hex navy/rust accents, RGB for kitty/Ghostty; bell is the only rust. Includes the prefix-free resize bindings.</td></tr>
+<tr><td><code>home/.config/sketchybar/</code></td><td>sync</td><td>Copy of the live config: dithered CPU/RAM charts, battery/disk gauges, <code>colors.navy_rust</code>, alignment fixes, plus earlier font, music art and ghost changes; ai_quip removed.</td></tr>
+</table>
+<h2>Decisions</h2>
+<table>
+<tr id="D-001"><td>D-001</td><td>Sync the whole live <code>~/.config/sketchybar</code> (rsync --delete), excluding <code>cache/</code>, <code>.ai/</code>, <code>.claude/</code>, <code>bin/</code> and <code>helpers/ghost/state.txt</code>.</td><td>The live folder is not symlinked; copying only the new widgets would leave the repo inconsistent with their <code>colors.lua</code>/<code>init.lua</code> dependencies.</td></tr>
+</table>
+<h2>Followups</h2>
+<ul><li id="L-001">L-001 · <code>~/.config/sketchybar</code> is a real directory, not the installer's symlink; future edits need another sync or a relink.</li>
+<li id="L-002">L-002 · kitty config is not tracked in this repo.</li></ul>
+<h2>Reversibility</h2>
+<p id="R-001">R-001 · Low: revert the two commits; live files are unaffected by the repo.</p>
+</body>
+</html>
