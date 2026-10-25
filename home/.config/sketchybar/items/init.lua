@@ -1,6 +1,5 @@
 require("items.front_app")
 require("items.media")
-require("items.music_art")
 require("items.calendar")
 require("items.widgets")
 require("items.ghost")

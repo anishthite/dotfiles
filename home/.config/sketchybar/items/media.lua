@@ -23,7 +23,7 @@ local media = sbar.add("item", "media", {
   },
   label = {
     string = "",
-    max_chars = 38,  -- keeps long titles clear of music_art beside the notch
+    max_chars = 38,  -- keeps long titles clear of the notch
     color = colors.white,
     padding_left = 22,
   },
