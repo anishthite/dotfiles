@@ -60,7 +60,7 @@ battery_percent:subscribe({"routine", "power_source_change", "system_woke"}, fun
     local charging = batt_info:find("AC Power") ~= nil
     -- Warm at 40% and below on battery, where the old glyph turned orange.
     local low = not charging and (not found or charge <= 40)
-    local color = low and colors.navy_rust.orange or colors.navy_rust.blue
+    local color = low and colors.navy_rust.orange or colors.white
 
     local lead = ""
     if found and charge < 10 then
