@@ -1,0 +1,25 @@
+# Dark Abyss (Tern)
+colors:
+  primary:
+    background: '#05070B'
+    foreground: '#C8D6E5'
+
+  normal:
+    black:   '#22324B'
+    red:     '#E85B5B'
+    green:   '#35C28A'
+    yellow:  '#F2B04C'
+    blue:    '#5AA4FF'
+    magenta: '#C77DFF'
+    cyan:    '#3FD3FF'
+    white:   '#A9B8C8'
+
+  bright:
+    black:   '#617289'
+    red:     '#FF8080'
+    green:   '#6EE0AB'
+    yellow:  '#FFD27A'
+    blue:    '#8CC0FF'
+    magenta: '#DDA6FF'
+    cyan:    '#7BE7FF'
+    white:   '#E6EEF7'

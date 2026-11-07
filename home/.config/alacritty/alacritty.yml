@@ -9,7 +9,7 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/current_theme.yml
+  - ~/.config/alacritty/dark.yml
 
 # Live config reload (default: true)
 live_config_reload: true
@@ -21,6 +21,18 @@ key_bindings:
   - { key: Right, mods: Command, chars: "\x01\x1b[1;5C" }
   - { key: Left,  mods: Command, chars: "\x01\x1b[1;5D" }
 
+# Start tmux in every Alacritty window, attaching to the shared "main" session.
+# `env -u TMUX` so it also works when launched from inside a tmux shell.
+shell:
+  program: /usr/bin/env
+  args:
+    - -u
+    - TMUX
+    - /opt/homebrew/bin/tmux
+    - new-session
+    - -A
+    - -s
+    - main
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
@@ -109,13 +121,13 @@ key_bindings:
 font:
   # Normal (roman) font face
   normal:
-    family: Monaspace Argon
+    family: BerkeleyMono Nerd Font
     style: Regular
 
   # Bold font face
   bold:
-    family: Monaspace Argon
-    style: Bold
+    family: BerkeleyMono Nerd Font
+    style: Medium
 
   # Italic font face — Radon (handwriting variant)
   italic:
@@ -128,7 +140,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 16.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

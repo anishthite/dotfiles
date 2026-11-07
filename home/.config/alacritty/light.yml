@@ -1,0 +1,27 @@
+# Light theme (Ayu Light)
+colors:
+  primary:
+    background: '#FAFAFA'
+    foreground: '#5C6166'
+
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#F51818'
+    green:   '#86B300'
+    yellow:  '#F2AE49'
+    blue:    '#399EE6'
+    magenta: '#A37ACC'
+    cyan:    '#4CBF99'
+    white:   '#FFFFFF'
+
+  # Bright colors
+  bright:
+    black:   '#323232'
+    red:     '#FF3333'
+    green:   '#99CC00'
+    yellow:  '#FFCC66'
+    blue:    '#6699FF'
+    magenta: '#CC99FF'
+    cyan:    '#66FFCC'
+    white:   '#FFFFFF'

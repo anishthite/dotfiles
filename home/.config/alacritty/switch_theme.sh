@@ -9,10 +9,10 @@ CURRENT_THEME_FILE="$ALACRITTY_CONFIG_DIR/current_theme.yml"
 
 # Determine which theme to use
 if [[ "$THEME" == "Dark" ]]; then
-    cp "$ALACRITTY_CONFIG_DIR/themes/dark.yml" "$CURRENT_THEME_FILE"
+    cp "$ALACRITTY_CONFIG_DIR/dark.yml" "$CURRENT_THEME_FILE"
     echo "Switched to dark theme"
 else
-    cp "$ALACRITTY_CONFIG_DIR/themes/light.yml" "$CURRENT_THEME_FILE"
+    cp "$ALACRITTY_CONFIG_DIR/light.yml" "$CURRENT_THEME_FILE"
     echo "Switched to light theme"
 fi
 

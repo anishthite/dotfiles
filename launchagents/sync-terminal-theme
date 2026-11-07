@@ -1,0 +1,76 @@
+#!/bin/sh
+set -eu
+
+if defaults read -g AppleInterfaceStyle 2>/dev/null | grep -qx 'Dark'; then
+	alacritty_theme='colors:
+  primary:
+    background: "#0d1117"
+    foreground: "#c9d1d9"
+  normal:
+    black: "#484f58"
+    red: "#ff7b72"
+    green: "#3fb950"
+    yellow: "#d29922"
+    blue: "#58a6ff"
+    magenta: "#bc8cff"
+    cyan: "#39c5cf"
+    white: "#b1bac4"
+  bright:
+    black: "#6e7681"
+    red: "#ffa198"
+    green: "#56d364"
+    yellow: "#e3b341"
+    blue: "#79c0ff"
+    magenta: "#d2a8ff"
+    cyan: "#56d4dd"
+    white: "#f0f6fc"'
+	tmux_bg='#0d1117'
+	tmux_fg='#c9d1d9'
+	tmux_muted='#8b949e'
+	tmux_accent='#58a6ff'
+else
+	alacritty_theme='colors:
+  primary:
+    background: "#ffffff"
+    foreground: "#24292f"
+  normal:
+    black: "#24292f"
+    red: "#cf222e"
+    green: "#1a7f37"
+    yellow: "#9a6700"
+    blue: "#0969da"
+    magenta: "#8250df"
+    cyan: "#1b7c83"
+    white: "#6e7781"
+  bright:
+    black: "#57606a"
+    red: "#a40e26"
+    green: "#116329"
+    yellow: "#7d4e00"
+    blue: "#0550ae"
+    magenta: "#6639ba"
+    cyan: "#0a6e75"
+    white: "#8c959f"'
+	tmux_bg='#ffffff'
+	tmux_fg='#24292f'
+	tmux_muted='#57606a'
+	tmux_accent='#0969da'
+fi
+
+tmp=$(mktemp "${HOME}/.config/alacritty/current_theme.yml.XXXXXX")
+printf '%s\n' "$alacritty_theme" >"$tmp"
+if cmp -s "$tmp" "${HOME}/.config/alacritty/current_theme.yml"; then
+	rm "$tmp"
+else
+	mv "$tmp" "${HOME}/.config/alacritty/current_theme.yml"
+fi
+
+if tmux has-session 2>/dev/null; then
+	tmux set-option -g status-style "bg=$tmux_bg,fg=$tmux_fg"
+	tmux set-option -g message-style "bg=$tmux_accent,fg=$tmux_bg"
+	tmux set-option -g message-command-style "bg=$tmux_accent,fg=$tmux_bg"
+	tmux set-window-option -g window-status-style "bg=default,fg=$tmux_muted"
+	tmux set-window-option -g window-status-current-style "bg=$tmux_accent,fg=$tmux_bg"
+	tmux set-option -g pane-border-style "bg=default,fg=$tmux_muted"
+	tmux set-option -g pane-active-border-style "bg=default,fg=$tmux_accent"
+fi

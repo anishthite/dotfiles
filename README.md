@@ -28,6 +28,16 @@ cp launchagents/com.kitty.theme.switch.plist ~/Library/LaunchAgents/
 launchctl load ~/Library/LaunchAgents/com.kitty.theme.switch.plist
 ```
 
+Alacritty 0.11 reads `alacritty.yml`, which imports the Dark Abyss palette from `alacritty/dark.yml`. Custom themes live
+beside the config because `alacritty/themes/` is the upstream submodule. `sync-terminal-theme` keeps `current_theme.yml`
+in step with macOS appearance:
+
+```bash
+mkdir -p ~/.local/bin && cp launchagents/sync-terminal-theme ~/.local/bin/
+cp launchagents/com.anishthite.sync-terminal-theme.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.anishthite.sync-terminal-theme.plist
+```
+
 Secrets are deliberately excluded: no `.ssh`, `.aws`, `.env`, `.npmrc`, `.gemini`, `.copilot`, `.claude.json`, `gh/hosts.yml`, etc.
 
 ## Quick start on a new Mac

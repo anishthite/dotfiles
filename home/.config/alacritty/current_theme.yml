@@ -1,75 +1,22 @@
-# ═══════════════════════════════════════════════
-# NERV-OS — Alacritty Color Scheme (YAML)
-# Warm retrofuturistic / Evangelion-inspired
-#
-# For Alacritty < 0.13.0 (alacritty.yml)
-# Paste into the `colors:` section of your config.
-# ═══════════════════════════════════════════════
-
 colors:
   primary:
-    background: '#0A0810'
-    foreground: '#E0D8CC'
-    dim_foreground: '#887468'
-    bright_foreground: '#F0E8E0'
-
-  cursor:
-    text: '#0A0810'
-    cursor: '#F59B2D'
-
-  vi_mode_cursor:
-    text: '#0A0810'
-    cursor: '#0CC0B8'
-
-  search:
-    matches:
-      foreground: '#0A0810'
-      background: '#F4B000'
-    focused_match:
-      foreground: '#0A0810'
-      background: '#F06800'
-
-  hints:
-    start:
-      foreground: '#0A0810'
-      background: '#F59B2D'
-    end:
-      foreground: '#0A0810'
-      background: '#0CC0B8'
-
-  selection:
-    text: '#F0E8E0'
-    background: '#3E3648'
-
-  # Normal
+    background: "#0d1117"
+    foreground: "#c9d1d9"
   normal:
-    black:   '#17131E'
-    red:     '#A00010'
-    green:   '#409820'
-    yellow:  '#F4B000'
-    blue:    '#088078'
-    magenta: '#7E5AB3'
-    cyan:    '#0A9E98'
-    white:   '#A89484'
-
-  # Bright
+    black: "#484f58"
+    red: "#ff7b72"
+    green: "#3fb950"
+    yellow: "#d29922"
+    blue: "#58a6ff"
+    magenta: "#bc8cff"
+    cyan: "#39c5cf"
+    white: "#b1bac4"
   bright:
-    black:   '#4C403A'
-    red:     '#E86060'
-    green:   '#50FF10'
-    yellow:  '#FFB347'
-    blue:    '#3CFFD0'
-    magenta: '#AC87DB'
-    cyan:    '#60F0E0'
-    white:   '#F0E8E0'
-
-  # Dim
-  dim:
-    black:   '#100D16'
-    red:     '#6A000C'
-    green:   '#2A6F21'
-    yellow:  '#8C6600'
-    blue:    '#044540'
-    magenta: '#402C5C'
-    cyan:    '#066058'
-    white:   '#685850'
+    black: "#6e7681"
+    red: "#ffa198"
+    green: "#56d364"
+    yellow: "#e3b341"
+    blue: "#79c0ff"
+    magenta: "#d2a8ff"
+    cyan: "#56d4dd"
+    white: "#f0f6fc"
