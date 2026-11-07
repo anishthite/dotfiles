@@ -53,6 +53,7 @@ alias kvpn="sudo killall -SIGINT openconnect"
 alias vim="nvim"
 alias cunt="git"
 alias v="vim"
+alias codex2='CODEX_HOME="$HOME/.codex-second" codex'
 
 eval "$(scmpuff init -s)"
 

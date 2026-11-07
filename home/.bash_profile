@@ -1,3 +1,6 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/anishthite/.docker/bin"
+# End of Docker Desktop section.
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -15,3 +18,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 . "$HOME/.cargo/env"
+
+# Added by jcode installer
+export PATH="/Users/anishthite/.local/bin:$PATH"
