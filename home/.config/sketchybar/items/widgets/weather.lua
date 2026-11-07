@@ -11,25 +11,8 @@ local function to_min(s)
   return tonumber(h) * 60 + tonumber(m)
 end
 
-local sun = sbar.add("item", "widgets.weather.sun", {
-  position = "right",
-  icon = {
-    string = "",
-    font = { style = settings.font.style_map["Regular"], size = 13.0 },
-    padding_left = settings.group_paddings,
-    padding_right = settings.paddings,
-    color = colors.navy_rust.blue,
-    y_offset = 1,  -- Nerd Font glyphs sit 0.75pt below the text line at 15pt
-  },
-  label = {
-    string = "--:--",
-    font = { family = settings.font.numbers, size = 10.0 },
-    padding_right = settings.paddings,
-  },
-})
-
 local weather = sbar.add("item", "widgets.weather", {
-  position = "right",
+  position = "left",
   icon = {
     string = "",
     font = { style = settings.font.style_map["Regular"], size = 13.0 },
@@ -44,6 +27,23 @@ local weather = sbar.add("item", "widgets.weather", {
     padding_right = settings.paddings,
   },
   update_freq = 600,
+})
+
+local sun = sbar.add("item", "widgets.weather.sun", {
+  position = "left",
+  icon = {
+    string = "",
+    font = { style = settings.font.style_map["Regular"], size = 13.0 },
+    padding_left = settings.group_paddings,
+    padding_right = settings.paddings,
+    color = colors.navy_rust.blue,
+    y_offset = 1,  -- Nerd Font glyphs sit 0.75pt below the text line at 15pt
+  },
+  label = {
+    string = "--:--",
+    font = { family = settings.font.numbers, size = 10.0 },
+    padding_right = settings.paddings,
+  },
 })
 
 local function update_weather()
@@ -86,8 +86,8 @@ sbar.add("bracket", "widgets.weather.bracket", { weather.name, sun.name }, {
 })
 
 sbar.add("item", "widgets.weather.padding", {
-  position = "right",
-  width = settings.group_paddings,
+  position = "left",
+  width = 8,
 })
 
 update_weather()

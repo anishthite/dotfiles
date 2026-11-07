@@ -1,4 +1,3 @@
-require("items.widgets.weather")
 require("items.widgets.disk")
 require("items.widgets.memory")
 require("items.widgets.cpu")

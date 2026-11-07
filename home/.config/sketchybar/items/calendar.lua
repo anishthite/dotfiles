@@ -43,7 +43,6 @@ cal:subscribe("mouse.clicked", function(env)
   for _, pat in ipairs(hidden_patterns) do
     sbar.set(pat, { drawing = not minimal })
   end
-  sbar.trigger("ghost_minimal", { on = minimal and "1" or "0" })
 end)
 
 -- Double border for calendar using a single item bracket

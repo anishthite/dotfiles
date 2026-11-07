@@ -5,11 +5,13 @@ sbar = require("sketchybar")
 -- sbar.set_bar_name("bottom_bar")
 
 -- Bundle the entire initial configuration into a single message to sketchybar
-sbar.add("event", "ghost_minimal")
 sbar.begin_config()
 require("bar")
 require("default")
 require("items")
+
+-- Remove widget fills and outlines without hiding image-based icons.
+sbar.set("/.*/", { background = { color = 0x00000000, border_width = 0, shadow = { drawing = false } } })
 
 -- Apply consistent, readable sizes to every widget and popup.
 sbar.set("/.*/", { icon = { font = { size = 15.0 } }, label = { font = { size = 14.0 } } })

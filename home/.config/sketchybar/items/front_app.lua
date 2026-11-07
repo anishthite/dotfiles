@@ -22,6 +22,6 @@ front_app:subscribe("mouse.clicked", function(env)
   if env.BUTTON == "right" then
     sbar.trigger("swap_menus_and_spaces")
   else
-    sbar.exec("yabai --restart-service")
+    sbar.exec("/opt/homebrew/bin/yabai --restart-service")
   end
 end)
