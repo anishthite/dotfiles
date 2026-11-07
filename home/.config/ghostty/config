@@ -1,13 +1,17 @@
 theme = Seti
 
-# Monaspace Neon — neo-grotesque sans, the "default" of the Monaspace family
-# Italic uses Monaspace Radon (handwriting) for a designed-italic look that's
-# clearly different from the upright text. Remove font-family-italic if you'd
-# rather have plain slanted Neon italics.
-font-family = Monaspace Neon
+# Match Alacritty's terminal faces.
+font-family = BerkeleyMono Nerd Font
+font-family-bold = BerkeleyMono Nerd Font
 font-family-italic = Monaspace Radon
 font-family-bold-italic = Monaspace Radon
+font-style-bold = Medium
+font-style-italic = Italic
+font-style-bold-italic = Bold Italic
 font-size = 14
+
+# Match Alacritty's Shift+Return escape sequence.
+keybind = shift+enter=text:\x1b\r
 
 # calt   = contextual alternates → enables Monaspace's "texture healing"
 # liga   = standard ligatures (==, =>, !=, ->, etc.)

@@ -1,6 +1,6 @@
 ####### Shortcut Hotkeys #############
 # open terminal
-cmd - return : open -n /Applications/Alacritty.app
+cmd - return : open -n /Applications/kitty.app
 
 # restart Yabi, SpaceBar, and SKHD
 alt + shift - r : \
